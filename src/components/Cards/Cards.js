@@ -1,23 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Grid,
-  Typography,
-  Card,
-  CardContent,
-  Box,
-  CardMedia,
-} from "@mui/material";
+import { Grid, Typography, Card, CardContent, CardMedia, Box, CircularProgress } from "@mui/material";
 import { ChipType } from "../ChipType/ChipType";
+import { Paginations } from "../Pagination/Paginations";
 
-export const Cards = ({ pokemons }) => {
+export const Cards = ({ pokemons, page, setPage, total, loading }) => {
   const container = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.3,
+        delayChildren: 0.2,
         staggerChildren: 0.2,
       },
     },
@@ -33,6 +27,12 @@ export const Cards = ({ pokemons }) => {
 
   return (
     <div>
+      {
+        loading ? (
+          <Box sx={{ display: "flex", flexDirection: 'column', alignItems: 'center' }}>
+          <CircularProgress />
+          </Box>
+        ) : (
       <motion.div variants={container} initial="hidden" animate="visible">
         <Grid container spacing={3}>
           {pokemons.map((pokemon, index) => {
@@ -44,9 +44,13 @@ export const Cards = ({ pokemons }) => {
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <Card sx={{ display: "flex" }}>
+                  <Card style={{ cursor: "pointer" }} sx={{ display: "flex" }}>
                     <CardContent sx={{ flex: "1 0 auto" }}>
-                      <Typography style={{ textTransform: "capitalize" }} variant="h5" color="initial">
+                      <Typography
+                        style={{ textTransform: "capitalize" }}
+                        variant="h5"
+                        color="initial"
+                      >
                         {pokemon.name}
                       </Typography>
                       <Typography variant="h6" color="initial">
@@ -67,6 +71,10 @@ export const Cards = ({ pokemons }) => {
           })}
         </Grid>
       </motion.div>
+
+        )
+      }
+          <Paginations page={page} setPage={setPage} total={total} />
     </div>
   );
 };

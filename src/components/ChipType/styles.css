@@ -1,5 +1,5 @@
 .rock {
-  background-color: rgb(148, 81, 81);
+  background-color: rgb(148, 81, 81) !important;
   text-transform: capitalize;
 }
 .ghost {
@@ -15,34 +15,36 @@
   text-transform: capitalize;
 }
 .poison {
-  background-color: #e0a7f6;
+  background-color: #e0a7f6 !important;
   text-transform: capitalize;
 }
 .normal {
-  background-color: #F4F4F4;
+  background-color: #F4F4F4 !important;
   text-transform: capitalize;
 }
 .fairy {
-  background-color: rgba(255, 192, 203, 0.863);
+  background-color: rgba(255, 192, 203, 0.863) !important;
   text-transform: capitalize;
 }
 .fire {
-  background-color: #fcc7be;
+  background-color: #fcc7be !important;
   text-transform: capitalize;
 }
 .grass {
-  background-color:#E2F9E1;
+  background-color:#E2F9E1 !important;
   text-transform: capitalize;
 }
 .water {
-  background-color:#9ec9e9;
+  background-color:#9ec9e9 !important;
   text-transform: capitalize;
 }
 
 .ground {
-  background-color: #eebc71;
+  background-color: #eebc71 !important;
+  text-transform: capitalize;
 }
 
 .flying {
-  background-color: #E0F1FD;
+  background-color: #E0F1FD !important;
+  text-transform: capitalize;
 }
